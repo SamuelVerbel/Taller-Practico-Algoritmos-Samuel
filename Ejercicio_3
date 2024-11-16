@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Ejercicio_3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double neto = 0;
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Ingrese el precio del producto " + i + ": ");
+            double precio = scanner.nextDouble();
+            System.out.print("Ingrese la cantidad del producto " + i + ": ");
+            int cantidad = scanner.nextInt();
+
+            if (precio > 0 && cantidad > 0) {
+                neto += precio * cantidad;
+            } else {
+                System.out.println("Ingrese valores positivos.");
+                i--;
+            }
+        }
+
+        System.out.print("Ingrese el descuento a aplicar (%): ");
+        double descuento = scanner.nextDouble();
+        System.out.print("Ingrese el IVA a aplicar (%): ");
+        double iva = scanner.nextDouble();
+
+        if (descuento >= 0 && descuento < 50 && iva <= 19) {
+            double montoDescuento = neto * (descuento / 100);
+            double montoIVA = (neto - montoDescuento) * (iva / 100);
+            double totalPagar = neto - montoDescuento + montoIVA;
+
+            System.out.println("Precio neto: " + neto);
+            System.out.println("Descuento: " + montoDescuento);
+            System.out.println("IVA: " + montoIVA);
+            System.out.println("Total a pagar: " + totalPagar);
+        } else {
+            System.out.println("Descuento o IVA fuera de los límites permitidos.");
+        }
+        scanner.close();
+    }
+}
