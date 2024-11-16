@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Ejercicio_2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        final double IVA = 0.19;
+        double subtotal = 0;
+
+        while (true) {
+            System.out.print("Ingrese el precio del producto: ");
+            int precio = scanner.nextInt();
+            if (precio <= 0) {
+                break;
+            }
+
+            System.out.print("Ingrese la cantidad del producto: ");
+            int cantidad = scanner.nextInt();
+            if (cantidad <= 0) {
+                break;
+            }
+
+            if (precio > 0 && cantidad > 0) {
+                double resultado = precio * cantidad;
+                subtotal += resultado;
+                System.out.println("Valor por producto: " + resultado);
+            } else {
+                System.out.println("Por favor ingrese valores positivos.");
+                
+            }
+            double iva = subtotal * IVA;
+            double totalPagar = subtotal + iva;
+    
+            System.out.println("Subtotal: " + subtotal);
+            System.out.println("IVA: " + iva);
+            System.out.println("Total a pagar: " + totalPagar);
+        }
+        
+        scanner.close();
+    }
+}
