@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Ejercicio_8 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double saldo = 5000;
+
+        while (true) {
+            System.out.println("1. Depósito\n2. Retiro\n3. Salir");
+            System.out.print("Seleccione una opción: ");
+            int opcion = sc.nextInt();
+
+            if (opcion == 1) {
+                System.out.print("Ingrese la cantidad a depositar: ");
+                double deposito = sc.nextDouble();
+                saldo += deposito;
+            } else if (opcion == 2) {
+                System.out.print("Ingrese la cantidad a retirar: ");
+                double retiro = sc.nextDouble();
+                if (retiro <= saldo) {
+                    saldo -= retiro;
+                } else {
+                    System.out.println("Saldo insuficiente.");
+                }
+            } else if (opcion == 3) {
+                System.out.println("Saldo final: " + saldo);
+                break;
+            } else {
+                System.out.println("Opción inválida.");
+            }
+        }
+        sc.close();
+    }
+}
