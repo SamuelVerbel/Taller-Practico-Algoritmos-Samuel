@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+public class Ejercicio_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el año de nacimiento: ");
+        int añoNacimiento = scanner.nextInt();
+        int añoActual = LocalDate.now().getYear();
+        int edad = añoActual - añoNacimiento;
+
+        String etapa;
+
+        if (edad >= 0 && edad <= 5) {
+            etapa = "Primera infancia";
+        } else if (edad >= 6 && edad <=11) {
+            etapa = "Infancia";
+        } else if (edad >= 12 && edad <= 18) {
+            etapa = "Adolescencia";
+        } else if (edad >= 14 && edad <= 26) {
+            etapa = "Joven";
+        } else if (edad >= 27 && edad <= 59) {
+            etapa = "Adultez";
+        } else if (edad >= 60 && edad == 100) {
+            etapa = "Tercera edad";
+        } else {
+            etapa = "Usted no existe";
+        }
+            System.out.println("La persona está en la etapa: " + etapa);
+            scanner.close();
+    }
+}
